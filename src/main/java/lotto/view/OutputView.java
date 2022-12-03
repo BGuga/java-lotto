@@ -8,7 +8,7 @@ import java.util.*;
 
 public class OutputView {
     public void printBuyingLottos(List<Lotto> lottoList) {
-        System.out.println(String.format("%d개를 구입했습니다.", lottoList.size()));
+        System.out.println(String.format("%d개를 구매했습니다.", lottoList.size()));
         for (Lotto lotto : lottoList) {
             printLotto(lotto);
         }
