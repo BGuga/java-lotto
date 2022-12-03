@@ -14,9 +14,28 @@ public class Lotto {
         this.numbers = LottoNumber.makeNumberToLottoNumber(numbers);
     }
 
+    public int countSameLottoNumber(Lotto anotherLotto) {
+        int sameNumber = 0;
+        for (LottoNumber number : numbers) {
+            if (anotherLotto.isIncluded(number)) {
+                sameNumber++;
+            }
+        }
+        return sameNumber;
+    }
+
     public boolean isIncluded(int number) {
         for (LottoNumber numb : numbers) {
-            if(numb.isNumber(number)){
+            if (numb.isNumber(number)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isIncluded(LottoNumber lottoNumber) {
+        for (LottoNumber numb : numbers) {
+            if (numb.isSameLottoNumber(numb)) {
                 return true;
             }
         }

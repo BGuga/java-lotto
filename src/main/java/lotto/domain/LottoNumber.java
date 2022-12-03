@@ -17,6 +17,11 @@ public class LottoNumber {
     public boolean isNumber(int number) {
         return number == this.lottoNumber;
     }
+
+    public boolean isSameLottoNumber(LottoNumber otherLottoNumber) {
+        return this.lottoNumber == otherLottoNumber.lottoNumber;
+    }
+
     public static List<LottoNumber> makeNumberToLottoNumber(List<Integer> numbers) {
         List<LottoNumber> result = new ArrayList<>();
         for (Integer number : numbers) {
