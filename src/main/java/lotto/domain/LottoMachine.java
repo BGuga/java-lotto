@@ -28,6 +28,12 @@ public class LottoMachine {
         return new Lotto(lottoNumbers);
     }
 
+    public static WinningLotto getWinningLotto(List<Integer> lottoNumbers, int bonusNumber) {
+        Lotto lotto = new Lotto(lottoNumbers);
+        LottoNumber bonusNum = new LottoNumber(bonusNumber);
+        return new WinningLotto(lotto, bonusNum);
+    }
+
     private static Lotto makeRandomLotto() {
         return getLotto(Randoms.pickUniqueNumbersInRange(
                 LottoNumber.getMinLottoNumber(),
