@@ -1,5 +1,9 @@
 package lotto.domain;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class WinningLotto {
 
     public static final String LOTTO_INCLUDE_BONUS_NUMBER_ERROR_MESSAGE = "[ERROR] 보너스 번호는 로또 번호에 포함되면 안됩니다.";
@@ -10,6 +14,20 @@ public class WinningLotto {
         checkBonusInLotto(lotto, bonusNumber);
         this.lotto = lotto;
         this.bonusNumber = bonusNumber;
+    }
+
+    public Map<LottoResult, Integer> getResults(List<Lotto> lottos) {
+        Map<LottoResult, Integer> result = new HashMap<>();
+        for (Lotto lotto : lottos) {
+            LottoResult lottoResult = getResult(lotto);
+            result.computeIfPresent(lottoResult, (k,v)->v+1);
+            result.computeIfAbsent(lottoResult, (v)-> 1);
+        }
+        return result;
+    }
+
+    public LottoResult getResult(Lotto lotto) {
+        return LottoResult.getResult(this.lotto.countSameLottoNumber(lotto), lotto.isIncluded(bonusNumber));
     }
 
     private void checkBonusInLotto(Lotto lotto, LottoNumber bonusNumber) {
