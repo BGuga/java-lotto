@@ -19,6 +19,11 @@ public class InputView {
         return makeStringListToIntList(splitByComma(Console.readLine()));
     }
 
+    public int readBonusNumber(){
+        System.out.println("당첨 번호를 입력해 주세요.");
+        return makeInt(Console.readLine());
+    }
+
     private int makeInt(String moneyString) {
         try {
             return Integer.parseInt(moneyString);
