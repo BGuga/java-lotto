@@ -27,7 +27,7 @@ public class Lotto {
 
     public boolean isIncluded(LottoNumber lottoNumber) {
         for (LottoNumber numb : numbers) {
-            if (numb.isSameLottoNumber(numb)) {
+            if (numb.isSameLottoNumber(lottoNumber)) {
                 return true;
             }
         }
