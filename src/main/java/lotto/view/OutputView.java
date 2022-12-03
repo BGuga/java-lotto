@@ -59,7 +59,7 @@ public class OutputView {
             System.out.println(String.format("%d개 일치, 보너스 볼 일치 (%s원) - %d개", lottoResult.getMatchingNumber(), getPrizeString(lottoResult.getPrize()), count));
             return;
         }
-        System.out.println(String.format("%d개 일치 (%d원) - %d개", lottoResult.getMatchingNumber(), getPrizeString(lottoResult.getPrize()), count));
+        System.out.println(String.format("%d개 일치 (%s원) - %d개", lottoResult.getMatchingNumber(), getPrizeString(lottoResult.getPrize()), count));
     }
 
     private String getPrizeString(int prize) {
