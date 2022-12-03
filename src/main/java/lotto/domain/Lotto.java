@@ -7,11 +7,20 @@ public class Lotto {
     public static final String LOTTO_NUMBER_DUPLICATE_ERROR_MESSAGE = "[ERROR] 로또는 중복되지 않은 숫자들로 생성 됩니다.";
     private static final int lottoNumberCount = 6;
 
-    private final List<Integer> numbers;
+    private List<LottoNumber> numbers;
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
-        this.numbers = numbers;
+        this.numbers = LottoNumber.makeNumberToLottoNumber(numbers);
+    }
+
+    public boolean isIncluded(int number) {
+        for (LottoNumber numb : numbers) {
+            if(numb.isNumber(number)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private void validate(List<Integer> numbers) {
@@ -31,6 +40,7 @@ public class Lotto {
             throw new IllegalArgumentException(LOTTO_NUMBER_DUPLICATE_ERROR_MESSAGE);
         }
     }
+
 
     // TODO: 추가 기능 구현
 }
