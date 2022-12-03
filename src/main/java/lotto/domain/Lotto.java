@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Lotto {
@@ -33,8 +34,16 @@ public class Lotto {
         return false;
     }
 
-    public static int getLottoNumberCount(){
+    public static int getLottoNumberCount() {
         return lottoNumberCount;
+    }
+
+    public List<Integer> getIntLottoNumbers() {
+        List<Integer> result = new ArrayList<>();
+        for (LottoNumber lottoNumber : numbers) {
+            result.add(lottoNumber.getLottoNumber());
+        }
+        return result;
     }
 
     private void validate(List<Integer> numbers) {

@@ -14,6 +14,10 @@ public class LottoNumber {
         this.lottoNumber = number;
     }
 
+    public int getLottoNumber() {
+        return lottoNumber;
+    }
+
     public boolean isNumber(int number) {
         return number == this.lottoNumber;
     }
