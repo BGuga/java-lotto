@@ -18,7 +18,7 @@ public class Money {
     }
 
     private void moneyValidation(int money) {
-        if (money % LottoMachine.getLottoPrice().getMoney() != 0) {
+        if (money % LottoMachine.getLottoPrice() != 0) {
             throw new IllegalArgumentException(INVALID_MONEY_INPUT_ERROR_MESSAGE);
         }
     }

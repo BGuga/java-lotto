@@ -6,21 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LottoMachine {
-    static {
-        lottoPrice = new Money(1000);
-    }
-
-    private static final Money lottoPrice;
+    private static final int lottoPrice = 1000;
 
     public static List<Lotto> getRandomLottos(Money money) {
         List<Lotto> result = new ArrayList<>();
-        for (int i = 0; i < money.getQuotient(lottoPrice); i++) {
+        for (int i = 0; i < money.getQuotient(new Money(lottoPrice)); i++) {
             result.add(makeRandomLotto());
         }
         return result;
     }
 
-    public static Money getLottoPrice() {
+    public static int getLottoPrice() {
         return lottoPrice;
     }
 
