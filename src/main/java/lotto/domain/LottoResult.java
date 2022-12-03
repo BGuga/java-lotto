@@ -22,7 +22,7 @@ public enum LottoResult {
         LottoResult lottoResult = Arrays.stream(values())
                 .filter(result -> result.matchingNumber == matchingCount)
                 .findAny()
-                .get();
+                .orElse(LottoResult.MISS);
         if (lottoResult == LottoResult.SECOND || lottoResult == LottoResult.THIRD) {
             return checkSecondOrThird(bonusNumberMatched);
         }
