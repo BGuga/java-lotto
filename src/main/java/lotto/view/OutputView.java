@@ -3,6 +3,7 @@ package lotto.view;
 import lotto.domain.Lotto;
 import lotto.domain.LottoResult;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class OutputView {
@@ -20,7 +21,7 @@ public class OutputView {
 
     public void printLottoProfitRate(float rate) {
         float makeRateToPercent = rate * 100;
-        System.out.printf("총 수익률은 %.1f%%입니다.",makeRateToPercent);
+        System.out.printf("총 수익률은 %.1f%%입니다.", makeRateToPercent);
     }
 
     private void printLotto(Lotto lotto) {
@@ -55,9 +56,14 @@ public class OutputView {
             return;
         }
         if (lottoResult == LottoResult.SECOND) {
-            System.out.println(String.format("%d개 일치, 보너스 볼 일치 (%d원) - %d개", lottoResult.getMatchingNumber(), lottoResult.getPrize(), count));
+            System.out.println(String.format("%d개 일치, 보너스 볼 일치 (%s원) - %d개", lottoResult.getMatchingNumber(), getPrizeString(lottoResult.getPrize()), count));
             return;
         }
-        System.out.println(String.format("%d개 일치 (%d원) - %d개", lottoResult.getMatchingNumber(), lottoResult.getPrize(), count));
+        System.out.println(String.format("%d개 일치 (%d원) - %d개", lottoResult.getMatchingNumber(), getPrizeString(lottoResult.getPrize()), count));
+    }
+
+    private String getPrizeString(int prize) {
+        DecimalFormat decFormat = new DecimalFormat("###,###");
+        return decFormat.format(prize);
     }
 }
