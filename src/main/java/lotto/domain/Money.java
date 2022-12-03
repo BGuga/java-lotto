@@ -9,8 +9,16 @@ public class Money {
         this.money = money;
     }
 
+    public int getQuotient(Money divider) {
+        return this.money/divider.money;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
     private void moneyValidation(int money) {
-        if (money % LottoMachine.getLottoPrice() != 0) {
+        if (money % LottoMachine.getLottoPrice().getMoney() != 0) {
             throw new IllegalArgumentException(INVALID_MONEY_INPUT_ERROR_MESSAGE);
         }
     }
