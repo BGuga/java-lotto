@@ -29,6 +29,14 @@ public enum LottoResult {
         return lottoResult;
     }
 
+    public int getPrize() {
+        return prize;
+    }
+
+    public int getMatchingNumber() {
+        return matchingNumber;
+    }
+
     private static LottoResult checkSecondOrThird(boolean bonusNumberMatched) {
         if (bonusNumberMatched) {
             return LottoResult.SECOND;
