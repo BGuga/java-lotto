@@ -18,6 +18,11 @@ public class OutputView {
         printResults(result);
     }
 
+    public void printLottoProfitRate(float rate) {
+        float makeRateToPercent = rate * 100;
+        System.out.printf("총 수익률은 %.1f%%입니다.",makeRateToPercent);
+    }
+
     private void printLotto(Lotto lotto) {
         StringJoiner lottoPrintFormat = new StringJoiner(", ", "[", "]");
         for (int number : lotto.getIntLottoNumbers()) {
@@ -44,7 +49,7 @@ public class OutputView {
     }
 
     private void printPrize(LottoResult lottoResult, int count) {
-        if (lottoResult == LottoResult.MISS){
+        if (lottoResult == LottoResult.MISS) {
             return;
         }
         if (lottoResult == LottoResult.SECOND) {
