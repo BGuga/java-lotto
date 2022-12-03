@@ -1,4 +1,4 @@
-package lotto;
+package lotto.domain;
 
 public class LottoNumber {
     private static final String OUT_OF_NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1~45 사이 값 입니다.";
