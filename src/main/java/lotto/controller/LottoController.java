@@ -11,9 +11,14 @@ public class LottoController {
     OutputView outputView = new OutputView();
 
     public void process() {
-        List<Lotto> lottoList = getLottosByConsole();
-        WinningLotto winningLotto = getWinningLottoByConsole();
-        printResult(winningLotto, lottoList);
+        try {
+            List<Lotto> lottoList = getLottosByConsole();
+            WinningLotto winningLotto = getWinningLottoByConsole();
+            printResult(winningLotto, lottoList);
+        } catch (IllegalArgumentException e) {
+            outputView.printErrorMessage(e.getMessage());
+        }
+
     }
 
     private List<Lotto> getLottosByConsole() {

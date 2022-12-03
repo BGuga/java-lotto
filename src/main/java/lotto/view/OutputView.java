@@ -24,6 +24,10 @@ public class OutputView {
         System.out.printf("총 수익률은 %.1f%%입니다.", makeRateToPercent);
     }
 
+    public void printErrorMessage(String message) {
+        System.out.println(message);
+    }
+
     private void printLotto(Lotto lotto) {
         StringJoiner lottoPrintFormat = new StringJoiner(", ", "[", "]");
         List<Integer> intLottoNumbers = lotto.getIntLottoNumbers();
