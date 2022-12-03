@@ -25,7 +25,9 @@ public class OutputView {
 
     private void printLotto(Lotto lotto) {
         StringJoiner lottoPrintFormat = new StringJoiner(", ", "[", "]");
-        for (int number : lotto.getIntLottoNumbers()) {
+        List<Integer> intLottoNumbers = lotto.getIntLottoNumbers();
+        intLottoNumbers.sort(Comparator.naturalOrder());
+        for (int number : intLottoNumbers) {
             lottoPrintFormat.add(String.valueOf(number));
         }
         System.out.println(lottoPrintFormat);
