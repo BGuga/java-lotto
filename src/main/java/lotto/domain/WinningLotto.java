@@ -20,14 +20,23 @@ public class WinningLotto {
         Map<LottoResult, Integer> result = new HashMap<>();
         for (Lotto lotto : lottos) {
             LottoResult lottoResult = getResult(lotto);
-            result.computeIfPresent(lottoResult, (k,v)->v+1);
-            result.computeIfAbsent(lottoResult, (v)-> 1);
+            result.computeIfPresent(lottoResult, (k, v) -> v + 1);
+            result.computeIfAbsent(lottoResult, (v) -> 1);
         }
         return result;
     }
 
     public LottoResult getResult(Lotto lotto) {
         return LottoResult.getResult(this.lotto.countSameLottoNumber(lotto), lotto.isIncluded(bonusNumber));
+    }
+
+    public float getProfitRate(List<Lotto> lottos) {
+        Map<LottoResult, Integer> results = getResults(lottos);
+        int prizeAmount = results.keySet().stream()
+                .map(result -> results.get(result) * result.getPrize())
+                .reduce((x, y) -> x + y)
+                .get();
+        return (float)prizeAmount / LottoMachine.getLottoPrice().getMoney();
     }
 
     private void checkBonusInLotto(Lotto lotto, LottoNumber bonusNumber) {
