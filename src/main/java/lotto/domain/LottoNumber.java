@@ -5,8 +5,8 @@ import java.util.List;
 
 public class LottoNumber {
     private static final String OUT_OF_NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1~45 사이 값 입니다.";
-    private final int minValue = 1;
-    private final int maxValue = 45;
+    private static final int minValue = 1;
+    private static final int maxValue = 45;
     private final int lottoNumber;
 
     public LottoNumber(int number) {
@@ -28,6 +28,14 @@ public class LottoNumber {
             result.add(new LottoNumber(number));
         }
         return result;
+    }
+
+    public static int getMinLottoNumber(){
+        return minValue;
+    }
+
+    public static int getMaxLottoNumber(){
+        return maxValue;
     }
 
     private void checkNumberRange(int number) {

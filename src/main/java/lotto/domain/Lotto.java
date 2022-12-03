@@ -33,6 +33,10 @@ public class Lotto {
         return false;
     }
 
+    public static int getLottoNumberCount(){
+        return lottoNumberCount;
+    }
+
     private void validate(List<Integer> numbers) {
         checkLottoNumberCount(numbers);
         checkDuplication(numbers);
