@@ -36,7 +36,7 @@ public class WinningLotto {
                 .map(result -> results.get(result) * result.getPrize())
                 .reduce((x, y) -> x + y)
                 .get();
-        return (float)prizeAmount / LottoMachine.getLottoPrice().getMoney();
+        return (float)prizeAmount / LottoMachine.getLottoPrice();
     }
 
     private void checkBonusInLotto(Lotto lotto, LottoNumber bonusNumber) {
