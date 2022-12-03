@@ -1,5 +1,8 @@
 package lotto.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LottoNumber {
     private static final String OUT_OF_NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1~45 사이 값 입니다.";
     private final int minValue = 1;
@@ -9,6 +12,17 @@ public class LottoNumber {
     public LottoNumber(int number) {
         checkNumberRange(number);
         this.lottoNumber = number;
+    }
+
+    public boolean isNumber(int number) {
+        return number == this.lottoNumber;
+    }
+    public static List<LottoNumber> makeNumberToLottoNumber(List<Integer> numbers) {
+        List<LottoNumber> result = new ArrayList<>();
+        for (Integer number : numbers) {
+            result.add(new LottoNumber(number));
+        }
+        return result;
     }
 
     private void checkNumberRange(int number) {
