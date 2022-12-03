@@ -1,2 +1,19 @@
-package lotto;public class LottoNumber {
+package lotto;
+
+public class LottoNumber {
+    private static final String OUT_OF_NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 1~45 사이 값 입니다.";
+    private final int minValue = 1;
+    private final int maxValue = 45;
+    private final int lottoNumber;
+
+    public LottoNumber(int number) {
+        checkNumberRange(number);
+        this.lottoNumber = number;
+    }
+
+    private void checkNumberRange(int number) {
+        if (number < minValue || number > maxValue) {
+            throw new IllegalArgumentException(OUT_OF_NUMBER_RANGE_ERROR_MESSAGE);
+        }
+    }
 }
