@@ -47,11 +47,11 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        checkLottoNumberCount(numbers);
+        checkLottoNumberSize(numbers);
         checkDuplication(numbers);
     }
 
-    private void checkLottoNumberCount(List<Integer> numbers) {
+    private void checkLottoNumberSize(List<Integer> numbers) {
         if (numbers.size() != lottoNumberCount) {
             throw new IllegalArgumentException(LOTTO_SIZE_ERROR_MESSAGE);
         }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LottoMachine {
-    private static final int lottoPrice = 1000;
+    private static final Money lottoPrice = new Money(1000);
 
     public static List<Lotto> getRandomLottos(Money money) {
         List<Lotto> result = new ArrayList<>();
